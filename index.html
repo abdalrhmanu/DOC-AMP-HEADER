@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-grid.min.css">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+        html,body{
+        /* font-family: sans-serif; */
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        margin:0;
+        padding:0;
+        scroll-behavior: smooth;
+        }
+
+        /* 2.7 logo and language side by side */
+        .header-lang-left {
+            color: #000;
+            display: inline-block;
+            margin: 10px 10px 0 10px;
+            padding: 27px 0;
+            text-decoration: none;
+        }
+        .header-logo-lang{
+            display: inline-flex;
+        }
+
+        @media(max-width: 960px){
+            .header-lang-left {
+                display: none;
+            }
+        }
+
+        .header-wrapping {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-logo svg {
+            height: 50px;
+
+        }
+        .subheader-wrapping {
+            border-top: 1px solid #f5f5f5;
+        }
+        .doc-header-logo-v2 svg {
+            height: 60px;
+            max-width: 100%;
+        }
+        /*4.3. Searchbar */
+
+  .new-search-bar{
+    height: 20px;
+    width: 540px;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #F5F5F5;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border-radius: 20px;
+    outline: none;
+    padding-left: 40px;
+    text-align: left;
+    font: normal normal normal 14px/26px Open Sans;
+    letter-spacing: 0px;
+    color: #8D8D8D;
+    opacity: 1;
+  }
+  .searchbar-form {
+    width: 100%;
+  }
+  .searchbar-input,.searchbar-input:active {
+  	border: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 16px;
+    height: 48px;
+    vertical-align: top;
+  	padding-left: 14px;
+  	padding-top: 12px;
+    padding-bottom: 12px;
+    outline:none;
+    width: calc(100% - 57px);
+  }
+  .searchbar-icon-crosshair {
+  	position: relative;
+  	top: 5px
+  }
+
+  @media(max-width:576px){
+    .searchbar-input,.searchbar-input:active {
+      height:40px;
+    }
+
+    .new-search-bar{
+      width: 40vw;
+      padding-left: 17px;
+      margin-left: 0px;
+    }
+    .search-button{
+      display: none;
+    }
+  }
+
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .new-search-bar{
+      width: 300px;
+    }
+  }
+    /* 4.3.1 Search result */
+
+    .search-result {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 2px #ddd;
+      cursor: pointer;
+      overflow: hidden;
+      position: absolute;
+      /* width: calc(100% - 36px); */
+      width: 540px;
+      z-index: 999;
+    }
+
+    .search-back-btn{
+      display:none;
+    }
+
+    @media (max-width: 768px) {
+      .search-result {
+        font-size: 14px;
+        width: 100vw;
+      }
+      .searchbar-form-mobile .search-result{
+        height:calc(100vh - 52px);
+        overflow: scroll;
+      }
+    }
+
+
+    .result-detail:first-child {
+      border-top:1px solid #eee;
+    }
+
+    .result-detail {
+      border-bottom:1px solid #eee;
+      color: #333;
+      display: inline-flex;
+      padding: 5px 0;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    .result-image {
+      align-items: center;
+      display:flex;
+      justify-content: center;
+      width: 20%;
+    }
+
+    @media (max-width: 768px) {
+      .result-image {
+        width: 20%;
+      }
+      .result-detail {
+        height: 72px;
+        overflow: hidden;
+      }
+    }
+
+    .result-image div {
+      height: 50px;
+      width: 80px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .result-title-price {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      .result-title-price {
+        display: block;
+        margin-top: 5px;
+        padding-left: 5px;
+        width: 70%;
+      }
+      .result-title{
+        font-weight: bold;
+      }
+    }
+
+    .result-title {
+      display: inline;
+      margin-left: 0;
+      max-width: 60%;
+    }
+
+    @media(max-width:576px){
+      .result-title {
+        display:block;
+        max-width:90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+      }
+    }
+
+    .result-title span{
+      color:#777;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .result-price {
+      float: right;
+      margin-right: 10px;
+      width:80px;
+    }
+
+    .result-buy-icon {
+      display:none;
+    }
+
+    .result-buy-icon svg {
+      width: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .result-price {
+        float: none;
+      }
+      .result-buy-icon {
+        display: flex;
+        width: 10%;
+      }
+    }
+
+    .search-back-btn {
+      background: #fff;
+      border: none;
+    }
+    .search-back-btn svg {
+      width: 25px;
+    }
+
+    .clear-btn svg {
+      width: 30px;
+    }
+
+    /*4.3.1.1. Search Suggestions*/
+
+    .search-suggest{
+      display:none;
+    }
+    .searchSuggestShow{
+      display:block;
+    }
+    @media(max-width:576px){
+      .searchSuggestShowMobile{
+          display:block;
+      }
+    }
+
+    .search-suggest .search-history-title{
+      background:none;
+      display:block;
+      margin:20px;
+    }
+    .search-suggest .cart-history-title{
+      background:none;
+      display:none;
+      margin:20px;
+    }
+    .search-suggest-item{
+      background-color: #eee;
+      border-radius: 5px;
+      color: #777;
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 20px;
+    }
+
+
+    /*4.3.2. Apply styles for mobile phone search*/
+
+    @media (max-width: 768px) {
+      .searchShow{
+        display:inline-block;
+      }
+      .searchbar-col.searchbar-mobile {
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        margin:0;
+        max-width: 100%;
+        padding:0;
+        position: fixed;
+        z-index: 1001;
+      }
+      .searchbar-form-mobile{
+        position: absolute;
+        top:15px;
+      }
+      .search-back-btn svg{
+        width: 50px;
+        padding: 10px;
+      }
+      .searchbar-input-mobile, .searchbar-input-mobile:active{
+        display: inline-block;
+        margin-top: 5px;
+        /* width: calc(100% - 120px); */
+        width: 270px;
+      }
+      .searchbar-btn-mobile,.searchbar-btn-mobile:hover,.searchbar-btn-mobile:active{
+        background-color:transparent
+      }
+      .searchbar-btn-mobile svg{
+        fill:#000;
+      }
+
+
+      /* width: calc(100% - 120px); */
+    }
+
+    @media only screen 
+      and (min-device-width: 768px) 
+      and (max-device-width: 1024px) 
+      and (-webkit-min-device-pixel-ratio: 2) {
+        .searchbar-input-mobile{
+          width: 90vw;
+        }
+        .searchbar-btn-mobile{
+          display: none;
+        }
+      }
+
+        .header-more-icon {
+            height: 15px;
+            margin-left: 5px;
+            position: relative;
+            top: 2px;
+            width: 15px
+        }
+
+        .search-button {
+            height: 20px;
+            width: 540px;
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid #F5F5F5;
+            background: #F5F5F5 0% 0% no-repeat padding-box;
+            border-radius: 20px;
+            outline: none;
+            padding-left: 40px;
+            text-align: left;
+            font: normal normal normal 14px/26px Open Sans;
+            letter-spacing: 0px;
+            color: #8D8D8D;
+            float: left;
+            opacity: 1;
+            }
+
+            .search-button:hover {
+            background: #0b7dda;
+            }
+            .search-button svg{
+            fill: #8D8D8D;
+            width: 15px;
+            background: none;
+            }
+
+            @media(max-width:576px){
+            #searchbarCol.searchbar-col{
+                padding:0;
+            }
+            .searchbar-input,.searchbar-input:active {
+                height:40px;
+            }
+            .search-button {
+                height:40px;
+            }
+            }
+
+            header{z-index:150;background:#fff;position:relative}.header-wrapping{height:120px;padding:0;display:flex;align-items:center;width:100%;font-family:'Open Sans'}.header-logo{display:flex;justify-content:space-between;align-items:center;margin-right:50px}.header-logo img{height:100%;float:left;max-height:50px;margin-right:10px}.mobile-burger{display:none}.m-0{margin:0;padding:0}.subheader-wrapping{border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;font-family:'Open Sans'}#absolute-wrapper{position:fixed;top:0;bottom:0;left:0;right:0;width:100%;height:100%;z-index:2}@media only screen and (max-width:768px){.mobile-burger{display:block}.header-logo{margin-right:10px}.header-logo img{height:50px;width:50px;object-fit:contain}.d-none-xs{display:none!important}}
+
+            /* Controller styles */
+            .subheader-main-keys input[type=checkbox]:hover + label{
+                color: #0071eb;
+            }
+            .subheader-main-keys input[type=checkbox]:checked ~ .indi-subs{
+                display: block;
+            }
+            input[type=checkbox]{
+                position: absolute;
+                width: 150px;
+                height: 30px;
+                margin: 0;
+                cursor: pointer;
+                opacity: 0;
+            }
+            
+            @media(max-width:576px){
+                
+                input[type=checkbox]{
+                    width: 90%;
+                }
+            }
+
+    </style>
+</head>
+<body style="height: 99999px;">
+    <div id="absolute-wrapper" class=""></div>
+    <header>
+        <div class="container">
+            <div class="header-wrapping">
+                <div class="col-2 m-0">
+                    <div class="header-logo"><a href="/"><img
+                                src="https://doc-cdn.s3-ap-southeast-1.amazonaws.com/home/new_home/doctoroncall-logo-webp.webp"
+                                alt=""></a>
+                        <div class="header-menu-div"><a class="header-lang-left" href="/medicine/">Bahasa</a></div>
+                    </div>
+                </div>
+                <div class="col-6 m-0">
+
+                </div>
+                <div class="col-4 m-0">
+                    <style>
+                        .log-in-header img,
+                        .log-in-header svg,
+                        .reorder-header img,
+                        .reorder-header svg {
+                            height: 30px;
+                            width: 40px;
+                            fill: #000
+                        }
+    
+                        .header-functions {
+                            display: flex;
+                            align-items: center;
+                            width: fit-content;
+                            justify-content: space-between;
+                            float: right
+                        }
+    
+                        .header-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            margin: 20px
+                        }
+    
+                        .header-wrapper p {
+                            margin: 5px 0;
+                            padding: 0;
+                            text-align: left;
+                            font: normal normal normal 12px/23px Open Sans;
+                            letter-spacing: 0;
+                            color: #797979
+                        }
+    
+                        #account-non-amp {
+                            color: #797979;
+                            font-size: 12px
+                        }
+    
+                        .cart-header-v2 {
+                            position: relative
+                        }
+    
+                        .cart-count-v2 {
+                            position: absolute;
+                            background: red;
+                            color: #fff;
+                            border-radius: 5px;
+                            right: -20px;
+                            top: -20px;
+                            border-radius: 50%;
+                            width: 25px;
+                            height: 25px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center
+                        }
+    
+                        @media only screen and (max-width:768px) {
+                            .header-functions {
+                                width: fit-content;
+                                float: none
+                            }
+    
+                            .header-wrapper {
+                                margin: 0
+                            }
+    
+                            #header-functions img {
+                                width: 25px;
+                                height: 25px
+                            }
+    
+                            .log-in-header {
+                                display: none
+                            }
+    
+                            .header-functions {
+                                width: 100%
+                            }
+    
+                            .cart-count-v2 {
+                                right: -10px;
+                                top: -10px
+                            }
+    
+                            .header-wrapping {
+                                height: 90px;
+                                padding: 10px 0
+                            }
+                        }
+    
+                        .d-none-header {
+                            display: none
+                        }
+
+                        
+                    </style>
+                    <script>let toggleMobileTabs = (() => {
+                            let subHeader = document.getElementById('subheader-wrapping');
+                            subHeader.classList.toggle("d-none-xs");
+                        });</script>
+                    <div class="header-functions">
+                        <div class="header-wrapper reorder-header"
+                            onclick="signUpRedirect(window.location.origin+subdir+&quot;/account%23reorder&quot;)"><img
+                                src="https://doc-cdn.s3-ap-southeast-1.amazonaws.com/medicine/v2/reorder_icon.svg" alt="">
+                            <p>Reorder</p>
+                        </div>
+                        <div class="header-wrapper cart-function-header"
+                            onclick="signUpRedirect(window.location.origin+subdir+&quot;/checkout/%23!/shopping_cart&quot;)">
+                            <div class="cart-header-v2">
+                                <div class="cart-count-v2" id="cart-count">0</div><a id="cart-icon"><img
+                                        src="https://doc-cdn.s3-ap-southeast-1.amazonaws.com/medicine/v2/cart-icon-dark.svg"
+                                        alt=""></a>
+                            </div>
+                            <p>Cart</p>
+                        </div>
+                        <div id="header-logged-in" class="text-style-none d-none-header d-none-xs"
+                            onclick="signUpRedirect(&quot;/medicine/account&quot;)" style="display: block;">
+                            <div class="header-wrapper"><img
+                                    src="https://doc-cdn.s3-ap-southeast-1.amazonaws.com/medicine/v2/account.svg" alt="">
+                                <p>Account</p>
+                            </div>
+                        </div>
+                        <div id="header-login-new" class="log-in-header d-none-header d-none-xs"
+                            onclick="signUpRedirect(window.location.href)" style="display: none;">
+                            <div class="header-wrapper"><img
+                                    src="https://doc-cdn.s3-ap-southeast-1.amazonaws.com/medicine/v2/profile-login-icon.svg"
+                                    alt="">
+                                <p>Log In</p>
+                            </div>
+                        </div>
+                        <div class="mobile-burger" onclick="toggleMobileTabs()"><img
+                                src="https://doc-cdn.s3-ap-southeast-1.amazonaws.com/medicine/v2/hamburger-menu-icon.svg"
+                                alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subheader-wrapping d-none-xs" id="subheader-wrapping">
+            <div class="subheader">
+                <div class="container xs-force-no-contain">
+                    <style>
+                        .subheader-main-keys-wrap {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center
+                        }
+    
+                        .subheader-main-keys {
+                            cursor: pointer;
+                            margin: 20px 0;
+                            width: 150px
+                        }
+    
+                        .subheader-main-keys:hover>p {
+                            color: #0071eb
+                        }
+    
+                        .header-hide {
+                            position: absolute;
+                            width: 100%;
+                            left: 0;
+                            background: #fff;
+                            z-index: 999;
+                            border-bottom: 1px solid #e6e6e6;
+                            cursor: pointer;
+                            border-top: 1px solid #e6e6e6;
+                            margin-top: 20px
+                        }
+    
+                        .header-hide .inner-container {
+                            display: flex;
+                            padding: 25px 0
+                        }
+    
+                        .subheader-heading {
+                            display: inline;
+                            text-transform: capitalize;
+                            text-align: left;
+                            font: normal normal normal 14px/26px Open Sans;
+                            letter-spacing: 0;
+                            color: #3c3c3c;
+                            opacity: 1;
+                            width: fit-content
+                        }
+    
+                        .header-hide img,
+                        .header-hide svg {
+                            height: 60px;
+                            width: 60px
+                        }
+    
+                        .header-hide .links {
+                            width: 30%;
+                            border-right: 1px solid #e6e6e6;
+                            margin-right: 20px
+                        }
+    
+                        .header-hide .links ul {
+                            list-style: none;
+                            margin-left: 0;
+                            padding: 0
+                        }
+    
+                        .header-hide .links ul li {
+                            line-height: 35px
+                        }
+    
+                        .header-hide .imgUsp {
+                            display: flex;
+                            margin: 0 10px;
+                            padding: 0 15px;
+                            max-width: 350px
+                        }
+    
+                        .header-hide .imgUsp:nth-child(1) {
+                            margin-left: 0;
+                            padding-left: 0
+                        }
+    
+                        .header-hide .imgUsp img,
+                        .header-hide .imgUsp svg {
+                            margin-right: 30px;
+                            padding: 0
+                        }
+    
+                        .imgUsp a,
+                        .links a {
+                            text-decoration: none;
+                            color: #3c3c3c
+                        }
+    
+                        .links a:hover {
+                            color: #0071eb
+                        }
+    
+                        .d-none {
+                            display: none
+                        }
+    
+                        .heading-header {
+                            color: #3c3c3c;
+                            font-weight: 700;
+                            margin-top: 0
+                        }
+    
+                        .subheading-header {
+                            color: #797979;
+                            font-size: 12px;
+                            line-height: 25px
+                        }
+    
+                        .details-subheader {
+                            width: 75%
+                        }
+    
+                        .imgUsp:hover>.heading a {
+                            color: #0071eb
+                        }
+    
+                        .ask-doctor-svg .b {
+                            stroke: #575757;
+                            stroke-linejoin: round;
+                            stroke-width: 1.8px;
+                            fill-rule: evenodd
+                        }
+    
+                        .ask-doctor-svg .b,
+                        .c {
+                            stroke-linecap: round
+                        }
+    
+                        .ask-doctor-svg .c {
+                            stroke: #ed4b7a;
+                            stroke-width: 2px
+                        }
+    
+                        @media only screen and (max-width:768px) {
+                            .subheader-main-keys {
+                                width: 100%
+                            }
+    
+                            .subheader-main-keys-wrap {
+                                display: block
+                            }
+    
+                            .subheader-main-keys {
+                                cursor: pointer;
+                                margin: 0;
+                                display: block;
+                                justify-content: space-evenly;
+                                width: 100%;
+                                border-bottom: 1px solid #dbdbdb;
+                                align-items: center;
+                                padding: 20px 15px
+                            }
+    
+                            .header-hide {
+                                position: initial;
+                                border-top: none;
+                                border-bottom: none;
+                                margin-top: 0;
+                                padding: 0
+                            }
+    
+                            .header-hide .links {
+                                padding: 0;
+                                border-bottom: 1px solid #d6d6d6;
+                                border-right: none;
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 30px
+                            }
+    
+                            .header-hide .imgUsp {
+                                padding: 10px 0;
+                                border-bottom: none;
+                                max-width: none;
+                                width: 100%;
+                                margin: 0
+                            }
+    
+                            .header-hide .inner-container {
+                                display: block;
+                                margin-top: 0;
+                                padding: 0
+                            }
+    
+                            .subheader-main-keys>p {
+                                width: 100%
+                            }
+    
+                            .header-hide .imgUsp:nth-child(1) {
+                                margin-top: 30px;
+                                padding: 10px 0
+                            }
+    
+                            .xs-force-no-contain {
+                                margin: 0 !important;
+                                padding: 0 !important
+                            }
+    
+                            .header-more-icon {
+                                float: right
+                            }
+                        }
+                    </style>
+                    <div class="subheader-main-keys-wrap">
+                        <!-- onclick="showSubs(&quot;subs_online_pharmacy&quot;,this)" -->
+                        <div class="subheader-main-keys online_pharmacy">
+                            <input name="checkbox1" type="checkbox" id="test-checkbox">
+                            <label for="checkbox1" class="subheader-heading">online pharmacy</label><svg class="header-more-icon"
+                                viewBox="0 0 50 50">
+                                <path
+                                    d="M 4.84375 12.90625 L 2.75 15 L 25 37.25 L 47.25 15 L 45.15625 12.90625 L 25 33.0625 Z ">
+                                </path>
+                            </svg>
+                            <div class="indi-subs d-none" id="subs_online_pharmacy">
+                                <div class="container xs-force-no-contain">
+                                    <div class="header-hide">
+                                        <div class="container xs-force-no-contain">
+                                            <div class="inner-container">
+                                                <div class="links">
+                                                    <ul>
+                                                        <li><a href="/medicine">Pharmacy</a></li>
+                                                        <li><a href="/medicine/en/drugs">Medicine</a></li>
+                                                        <li><a href="/medicine/en/supplements">Wellness &amp; Lifestyles</a>
+                                                        </li>
+                                                        <li><a href="/medicine/en/hygiene">Personal Care</a></li>
+                                                        <li><a href="/medicine/en/health-food-drinks">Health Food &amp;
+                                                                Drinks</a></li>
+                                                        <li><a href="/medicine/en/all-devices">Health care Devices</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="imgUsp"><a href="/medicine/coronavirus-covid-19-test-kit"><img
+                                                            src="./covid-test.svg"
+                                                            alt=""></a>
+                                                    <div class="details-subheader"><a
+                                                            href="/medicine/coronavirus-covid-19-test-kit"></a>
+                                                        <p class="heading-header"><a
+                                                                href="/medicine/coronavirus-covid-19-test-kit"></a><a
+                                                                href="/medicine/coronavirus-covid-19-test-kit">Find COVID
+                                                                Test</a></p>
+                                                        <p></p>
+                                                        <p class="subheading-header">Book a slot to get tested in the
+                                                            comfort of your car, at the clinic or at home</p>
+                                                    </div>
+                                                </div>
+                                                <div class="imgUsp"><a href="/health-screening"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="62" height="62"
+                                                            viewBox="0 0 62 62">
+                                                            <defs>
+                                                                <style>
+                                                                    .a {
+                                                                        fill: #fff
+                                                                    }
+    
+                                                                    .b {
+                                                                        fill: #ebe7f2
+                                                                    }
+    
+                                                                    .c {
+                                                                        fill: #575757
+                                                                    }
+    
+                                                                    .d {
+                                                                        fill: #ed4b7a
+                                                                    }
+                                                                </style>
+                                                            </defs>
+                                                            <g transform="translate(-223 -546)">
+                                                                <rect class="a" width="62" height="62"
+                                                                    transform="translate(223 546)"></rect>
+                                                                <g transform="translate(227.96 552.327)">
+                                                                    <path class="b"
+                                                                        d="M81.091,102.055a.745.745,0,0,1-.518-.208c-.794-.764-19.455-18.8-19.455-26.708a11.558,11.558,0,0,1,19.972-7.924,11.558,11.558,0,0,1,19.972,7.924c0,7.906-18.66,25.944-19.455,26.708A.745.745,0,0,1,81.091,102.055ZM72.677,65.073A10.077,10.077,0,0,0,62.612,75.139c0,6.592,15.431,22.123,18.479,25.126,3.048-3,18.479-18.536,18.479-25.126a10.065,10.065,0,0,0-17.9-6.32.746.746,0,0,1-1.161,0A10.029,10.029,0,0,0,72.677,65.073Z"
+                                                                        transform="translate(-55.119 -57.81)"></path>
+                                                                    <g transform="translate(0 0)">
+                                                                        <path class="c"
+                                                                            d="M78.039,44.257A14.865,14.865,0,0,0,67,49.135,14.932,14.932,0,0,0,41.027,59.189c0,1.916.791,4.294,2.42,7.269a.747.747,0,0,0,1.31-.717c-1.484-2.711-2.236-4.916-2.236-6.552a13.439,13.439,0,0,1,23.9-8.438.746.746,0,0,0,1.161,0,13.439,13.439,0,0,1,23.9,8.438c0,1.608-.728,3.767-2.162,6.416a.747.747,0,0,0,1.313.711c1.576-2.91,2.343-5.241,2.343-7.127A14.949,14.949,0,0,0,78.039,44.257Z"
+                                                                            transform="translate(-41.027 -44.257)"></path>
+                                                                        <path class="c"
+                                                                            d="M104.106,145.226a.747.747,0,0,0-1.048.127,205.72,205.72,0,0,1-16.169,17.836A205.71,205.71,0,0,1,70.72,145.353a.747.747,0,1,0-1.175.921,209.6,209.6,0,0,0,16.827,18.5.746.746,0,0,0,1.035,0,209.613,209.613,0,0,0,16.827-18.5A.746.746,0,0,0,104.106,145.226Z"
+                                                                            transform="translate(-60.917 -114.963)"></path>
+                                                                    </g>
+                                                                    <path class="d"
+                                                                        d="M60.909,101.62h-.068a2.231,2.231,0,0,1-2.092-1.643L56.8,92.915l-.75,3.749a2.246,2.246,0,0,1-2.2,1.8H49.03a2.24,2.24,0,1,1,0-4.479h2.99l2.238-11.192a2.24,2.24,0,0,1,4.355-.156l2.534,9.184.429-1.244a2.24,2.24,0,0,1,4.066-.373l2.141,3.782H94.689a2.24,2.24,0,1,1,0,4.479H66.477a2.244,2.244,0,0,1-1.949-1.136l-.337-.6-1.165,3.378A2.24,2.24,0,0,1,60.909,101.62ZM56.686,88.941a.747.747,0,0,1,.719.548l2.783,10.09a.747.747,0,0,0,1.425.045l1.7-4.943a.747.747,0,0,1,1.355-.125l1.153,2.037a.748.748,0,0,0,.65.379H94.688a.747.747,0,0,0,0-1.493H67.347a.747.747,0,0,1-.65-.379l-2.355-4.161a.747.747,0,0,0-1.355.124l-1.214,3.521a.737.737,0,0,1-.729.5.747.747,0,0,1-.7-.548l-3.174-11.5a.759.759,0,0,0-.747-.548.744.744,0,0,0-.705.6L53.364,94.878a.746.746,0,0,1-.732.6h-3.6a.747.747,0,1,0,0,1.493h4.826a.749.749,0,0,0,.732-.6l1.366-6.83a.746.746,0,0,1,.705-.6Z"
+                                                                        transform="translate(-45.069 -70.023)"></path>
+                                                                </g>
+                                                            </g>
+                                                        </svg></a>
+                                                    <div class="details-subheader"><a href="/health-screening"></a>
+                                                        <p class="heading-header"><a href="/health-screening"></a><a
+                                                                href="/health-screening">Health Screening</a></p>
+                                                        <p></p>
+                                                        <p class="subheading-header">Best healthcare packages in Malaysia at
+                                                            affordable prices tailored to your individual healthcare and
+                                                            wellness needs.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- onclick="showSubs(&quot;subs_doctor_services&quot;,this)" -->
+                        <div class="subheader-main-keys doctor_services">
+
+                            <input name="checkbox2" type="checkbox" id="test-checkbox">
+                            <label for="checkbox2" class="subheader-heading">doctor services</label>
+
+                            <svg class="header-more-icon"
+                                viewBox="0 0 50 50">
+                                <path
+                                    d="M 4.84375 12.90625 L 2.75 15 L 25 37.25 L 47.25 15 L 45.15625 12.90625 L 25 33.0625 Z ">
+                                </path>
+                            </svg>
+                            <div class="indi-subs d-none" id="subs_doctor_services">
+                                <div class="container xs-force-no-contain">
+                                    <div class="header-hide">
+                                        <div class="container xs-force-no-contain">
+                                            <div class="inner-container">
+                                                <div class="imgUsp"><a href="/tanya/en"><svg class="ask-doctor-svg"
+                                                            xmlns="http://www.w3.org/2000/svg" width="62" height="62"
+                                                            viewBox="0 0 62 62">
+                                                            <defs>
+                                                                <style>
+                                                                    .a,
+                                                                    .b,
+                                                                    .c {
+                                                                        fill: none
+                                                                    }
+                                                                </style>
+                                                            </defs>
+                                                            <g transform="translate(-167 -907)">
+                                                                <g transform="translate(167 907)">
+                                                                    <rect class="a" width="62" height="62"
+                                                                        transform="translate(0 0)"></rect>
+                                                                </g>
+                                                                <g transform="translate(172 912)">
+                                                                    <path class="b"
+                                                                        d="M17.14,40.358,6.885,46.6l1.76-10.716A18.135,18.135,0,0,1,2,21.822C2,10.875,11.436,2,26.423,2s24.423,8.875,24.423,19.822S41.411,41.644,26.423,41.644A32.371,32.371,0,0,1,17.14,40.358Z"
+                                                                        transform="translate(-2 -2)"></path>
+                                                                    <path class="b"
+                                                                        d="M37.693,12a12.947,12.947,0,0,1-.577,18.848l1.157,7.388-6.739-4.3a20.345,20.345,0,0,1-6.1.887c-8.033,0-13.64-4.071-15.433-9.667h0"
+                                                                        transform="translate(9.988 13.235)"></path>
+                                                                    <line class="c" x2="26"
+                                                                        transform="translate(11.773 13.733)"></line>
+                                                                    <line class="c" x2="17"
+                                                                        transform="translate(11.89 21.581)"></line>
+                                                                </g>
+                                                            </g>
+                                                        </svg></a>
+                                                    <div class="details-subheader"><a href="/tanya/en"></a>
+                                                        <p class="heading-header"><a href="/tanya/en"></a><a
+                                                                href="/tanya/en">Ask Doctor</a></p>
+                                                        <p></p>
+                                                        <p class="subheading-header">Malaysia"s #1Health Forum. Ask any
+                                                            health related questions to our doctors anonymously</p>
+                                                    </div>
+                                                </div>
+                                                <div class="imgUsp"><a href="/find-doctor"><img
+                                                            src="./book-doctor.svg"
+                                                            alt=""></a>
+                                                    <div class="details-subheader"><a href="/find-doctor"></a>
+                                                        <p class="heading-header"><a href="/find-doctor"></a><a
+                                                                href="/find-doctor">Book Doctor</a></p>
+                                                        <p></p>
+                                                        <p class="subheading-header">Check out our latest hospital partners
+                                                            and specialist services now available for online video and phone
+                                                            consultation!</p>
+                                                    </div>
+                                                </div>
+                                                <div class="imgUsp"><a href="/online-doctor"><img
+                                                            src="./consult-doctor.svg"
+                                                            alt=""></a>
+                                                    <div class="details-subheader"><a href="/online-doctor"></a>
+                                                        <p class="heading-header"><a href="/online-doctor"></a><a
+                                                                href="/online-doctor">Consult Doctor</a></p>
+                                                        <p></p>
+                                                        <p class="subheading-header">Consult With A Doctor Online Video
+                                                            Call, Audio Call or Chat Privately from RM19.99</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- onclick="showSubs(&quot;subs_health_centre&quot;,this)" -->
+                        <div class="subheader-main-keys health_centre">
+                            <input name="checkbox3" type="checkbox" id="test-checkbox">
+                            <label for="checkbox3" class="subheader-heading">health centre</label>
+                            <svg class="header-more-icon" viewBox="0 0 50 50">
+                                <path
+                                    d="M 4.84375 12.90625 L 2.75 15 L 25 37.25 L 47.25 15 L 45.15625 12.90625 L 25 33.0625 Z ">
+                                </path>
+                            </svg>
+                            <div class="indi-subs d-none" id="subs_health_centre">
+                                <div class="container xs-force-no-contain">
+                                    <div class="header-hide">
+                                        <div class="container xs-force-no-contain">
+                                            <div class="inner-container">
+                                                <div class="links">
+                                                    <ul>
+                                                        <li><a href="/health-centre/smoking-cessation">Smoking Cessation</a>
+                                                        </li>
+                                                        <li><a href="/health-centre/vaccination">Vaccination</a></li>
+                                                        <li><a href="/health-centre/heart-health">Heart Health</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="subheader-main-keys promotions"
+                            onclick="window.location.replace(&quot;/medicine/promos/&quot;)">
+                            <p class="subheader-heading">promotions</p>
+                        </div>
+                        <div class="subheader-main-keys corporate"
+                            onclick="window.location.replace(&quot;/corporate&quot;)">
+                            <p class="subheader-heading">corporate</p>
+                        </div>
+                        <!-- onclick="showSubs(&quot;subs_more&quot;,this)" -->
+                        <div class="subheader-main-keys more" >
+                            <input name="checkbox4" type="checkbox" id="test-checkbox">
+                            <label for="checkbox4" class="subheader-heading">more</label>
+                            <svg class="header-more-icon" viewBox="0 0 50 50">
+                                <path
+                                    d="M 4.84375 12.90625 L 2.75 15 L 25 37.25 L 47.25 15 L 45.15625 12.90625 L 25 33.0625 Z ">
+                                </path>
+                            </svg>
+                            <div class="indi-subs d-none" id="subs_more">
+                                <div class="container xs-force-no-contain">
+                                    <div class="header-hide">
+                                        <div class="container xs-force-no-contain">
+                                            <div class="inner-container">
+                                                <div class="links">
+                                                    <ul>
+                                                        <li><a href="/about-us">About Us</a></li>
+                                                        <li><a href="/soalan">Health Q&amp;A</a></li>
+                                                        <li><a href="/penyakit-a-z">Read Health Articles</a></li>
+                                                        <li><a href="/faq">FAQ</a></li>
+                                                        <li><a href="/media">Media</a></li>
+                                                        <li><a href="/career">Careers</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="links">
+                                                    <ul>
+                                                        <li><a href="/panel-doctor">Panel Doctors</a></li>
+                                                        <li><a href="/contact-us">Contact Us</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Tabs are fully working with css and checkbox, inspect and change checkbox opacity to 1 to see how it works. Searchbar is not hear as it will be included from ejs template.</h1>
+                    <br><br>
+                    <h2>One issue yet is the hamburger dropdown for phone, as it is in a different html element, so css selectors can't be used in this case. Found this option but need to try in an AMP enviroment project, using amp-bind</h2>
+                    <ul style="font-size: 22px;">
+                        <li>
+                            <ol>
+                                <li>https://stackoverflow.com/questions/45239075/amp-easy-way-to-toggle-a-css-class</li>
+                                <li>http://jsbin.com/yirerekami/edit?html,output</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
